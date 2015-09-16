@@ -72,9 +72,6 @@ class Installer(object):
         if os.path.isdir(self.install_dir):
             if options.reinstall:
                 shutil.rmtree(self.install_dir)
-            else:
-                logger.error("You have already installed `%s`" % self.pkg.name)
-                raise RuntimeError
 
         self.options = options
         self.logfile = os.path.join(PATH_LOG, 'build.log')
