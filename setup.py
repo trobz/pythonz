@@ -15,13 +15,13 @@ def get_version():
     return re.search(r"""__version__\s+=\s+(?P<quote>['"])(?P<version>.+?)(?P=quote)""", open('pythonz/version.py').read()).group('version')
 
 
-setup(name='pythonz',
+setup(name='pythonz-bd',
       version              = get_version(),
-      description          = 'Manage python installations in your system',
+      description          = "Manage python installations in your system, berdario's shallow fork",
       long_description     = open('README.rst').read(),
       author               = 'saghul',
       author_email         = 'saghul@gmail.com',
-      url                  = 'https://github.com/saghul/pythonz',
+      url                  = 'https://github.com/berdario/pythonz/tree/bd',
       license              = 'MIT',
       packages             = find_packages('pythonz'),
       include_package_data = True,
@@ -40,4 +40,3 @@ setup(name='pythonz',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
       ])
-
