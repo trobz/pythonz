@@ -102,7 +102,7 @@ class Installer(object):
             except DownloadError:
                 unlink(self.download_file)
                 logger.error("Failed to download.\n%s" % (sys.exc_info()[1]))
-                sys.exit(1)
+                raise
             except:
                 unlink(self.download_file)
                 raise
@@ -165,9 +165,8 @@ class CPythonInstaller(Installer):
                         s.shell('ed - %s < %s' % (source, ed))
                 else:
                     s.shell("patch -p0 < %s" % patch)
-        except:
-            logger.error("Failed to patch `%s`.\n%s" % (self.build_dir, sys.exc_info()[1]))
-            sys.exit(1)
+        except Exception:
+            raise RuntimeError("Failed to patch `%s`.\n%s" % (self.build_dir, sys.exc_info()[1]))
 
     def _append_patch(self, patch_dir, patch_files):
         for patch in patch_files:
@@ -207,14 +206,13 @@ class CPythonInstaller(Installer):
             traceback.print_exc()
             rm_r(self.install_dir)
             logger.error("Failed to install %s. Check %s to see why." % (self.pkg.name, self.logfile))
-            sys.exit(1)
+            raise
         self.symlink()
         logger.info("\nInstalled %(pkgname)s successfully." % {"pkgname": self.pkg.name})
 
     def download_and_extract(self):
         self.download()
-        if not extract_downloadfile(self.content_type, self.download_file, self.build_dir):
-            sys.exit(1)
+        extract_downloadfile(self.content_type, self.download_file, self.build_dir)
 
     def _patch(self):
         version = Version(self.pkg.version)
@@ -439,8 +437,7 @@ class PyPyInstaller(Installer):
 
     def download_and_extract(self):
         self.download()
-        if not extract_downloadfile(self.content_type, self.download_file, self.build_dir):
-            sys.exit(1)
+        extract_downloadfile(self.content_type, self.download_file, self.build_dir)
 
     def symlink(self):
         install_dir = os.path.realpath(self.install_dir)

@@ -35,8 +35,7 @@ class UpdateCommand(Command):
 
         extract_dir = os.path.join(PATH_BUILD, filename)
         rm_r(extract_dir)
-        if not extract_downloadfile(content_type, download_file, extract_dir):
-            sys.exit(1)
+        extract_downloadfile(content_type, download_file, extract_dir)
 
         try:
             logger.info("Installing %s into %s" % (extract_dir, ROOT))
@@ -48,4 +47,3 @@ class UpdateCommand(Command):
         logger.info("pythonz has been updated.")
 
 UpdateCommand()
-

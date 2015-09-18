@@ -42,4 +42,3 @@ class LocateCommand(Command):
         logger.log(path)
 
 LocateCommand()
-
