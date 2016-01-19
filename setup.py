@@ -14,6 +14,13 @@ def find_packages(toplevel):
 def get_version():
     return re.search(r"""__version__\s+=\s+(?P<quote>['"])(?P<version>.+?)(?P=quote)""", open('pythonz/version.py').read()).group('version')
 
+def python_version_gte(version, pkgs):
+    # The proper way to do this would be {':python_version>="3.5"': ['resumable-urlretrieve']}
+    # but this is only implemented in setuptools 17.1, while MacOSX currently ships
+    # setuptools 1.1.6. Upgrading setuptools is unfeasible there due to its System Integrity Protection
+    major, minor = version
+    return {':python_version=="{}.{}"'.format(major, x): pkgs
+            for x in range(minor, 10)}
 
 setup(name='pythonz-bd',
       version              = get_version(),
@@ -24,7 +31,7 @@ setup(name='pythonz-bd',
       url                  = 'https://github.com/berdario/pythonz/tree/bd',
       license              = 'MIT',
       packages             = find_packages('pythonz'),
-      extras_require       = {':python_version>="3.5"': ['resumable-urlretrieve']},
+      extras_require       = python_version_gte((3,5), ['resumable-urlretrieve']),
       include_package_data = True,
       entry_points         = dict(console_scripts=['pythonz=pythonz:main',
                                                    'pythonz_install=pythonz.installer:install_pythonz']),
