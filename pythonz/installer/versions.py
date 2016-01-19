@@ -35,6 +35,7 @@ versions = {
         '2.7.8': '74d70b914da4487aa1d97222b29e9554d042f825f26cb2b93abd20fdda56b557',
         '2.7.9': 'c8bba33e66ac3201dabdc556f0ea7cfe6ac11946ec32d357c4c6f9b018c12c5b',
         '2.7.10': 'eda8ce6eec03e74991abb5384170e7c65fcd7522e409b8e83d7e6372add0f12a',
+        '2.7.11': '82929b96fd6afc8da838b149107078c02fa1744b7e60999a8babbc0d3fa86fc6',
         '3.0': '4d5d6ab2f893144a382ae1ea1de88a7825eb98111e26cfde627b9f3d9fd462b4',
         '3.0.1': '7d5f2feae9035f1d3d9e6bb7f092dbf374d6bb4b25abd0d2d11f13bba1cb04de',
         '3.1': '99a034cf574ea3c26412b0a0728126d7fd6ea9593d099d807a25d216ed031e6a',
@@ -60,7 +61,8 @@ versions = {
         '3.4.1': '8d007e3ef80b128a292be101201e75dec5480e5632e994771e7c231d17720b66',
         '3.4.2': '44a3c1ef1c7ca3e4fd25242af80ed72da941203cb4ed1a8c1b724d9078965dd8',
         '3.4.3': '8b743f56e9e50bf0923b9e9c45dd927c071d7aa56cd46569d8818add8cf01147',
-        '3.5.0': '584e3d5a02692ca52fce505e68ecd77248a6f2c99adf9db144a39087336b0fe0'
+        '3.5.0': '584e3d5a02692ca52fce505e68ecd77248a6f2c99adf9db144a39087336b0fe0',
+        '3.5.1': '687e067d9f391da645423c7eda8205bae9d35edc0c76ef5218dcbe4cc770d0d7'
     },
     'stackless': {
         '2.6.5': 'ac1956d7f9715cc56e92992d39b24f0869cd9955fd2b8cf52b163530194d07b1',
@@ -115,7 +117,13 @@ versions = {
                   'darwin': '77f1d056484e40e0a8e2e2b2b489eedfe785605ef36b144ffce05f7b748f6acd'},
         '2.6.1': {'linux': 'd010b1f1aafdb01beb107f16843985508ce81698260ce830690686d9b2768c88',
                   'linux64': '78a48490d1b2dba8571156c2bf822324ca7dae6f6a56a4bbb96d3e8e8885367b',
-                  'darwin': '4a78ef76ec38a49a9de40225c337e89486fa09938c600df2bd2dd60110066f65'}
+                  'darwin': '4a78ef76ec38a49a9de40225c337e89486fa09938c600df2bd2dd60110066f65'},
+        '4.0.0': {'linux': '365600947775bc73a902a5b1d11f8b96cf49f07cdbbab28bb47240097b4bb4c5',
+                  'linux64': '30365cf4fa6cd8e9ff44126f06dcaebefda35c2543ddcf9b9e8516c29cabe726',
+                  'darwin': 'd9e590fe5b9461bbdff56c76636e844ef90a297f82d0d2e204866c8a21759a50'},
+        '4.0.1': {'linux': '721920fcbb6aefc9a98e868e32b7f4ea5fd68b7f9305d08d0a2595327c9c0611',
+                  'linux64': '0d6090cee59f4b9bab91ddbea76580d0c232b78dae65aaa9e8fa8d4449ba25b4',
+                  'darwin': '06be1299691f7ea558bf8e3bdf3d20debb8ba03cd7cadf04f2d6cbd5fd084430'}
                 },
     'pypy3': {
         '2.3.1': {'linux': '7eddc6826e58c9c89e68b59ec8caf1596b76401517ad8d26ad5e18e0ffa45db9',

@@ -30,7 +30,6 @@ except ImportError:
             with mmap(f.fileno(), 0, access=ACCESS_READ) as m:
                 return hashlib.sha256(m).hexdigest()
 
-
     def validate_sha256(filename, sha256sum):
         if sha256sum is not None:
             return sha256(filename) == sha256sum
@@ -38,7 +37,6 @@ except ImportError:
             logger.warning("sha256sum unavailable, skipping verification.\nMake "
                            "sure that the server you're downloading from is trusted")
             return True
-
 
     def urlretrieve(url, filename, reporthook, sha256sum):
         try:
@@ -48,8 +46,6 @@ except ImportError:
         except BaseException:
             os.unlink(filename)
             raise
-
-
 
 class ProgressBar(object):
     def __init__(self, out=sys.stdout):
@@ -68,6 +64,8 @@ class ProgressBar(object):
         return result
 
     def reporthook(self, blocknum, bs, size):
+        if size in (-1, None):  # disable progress bar if size not known
+            return
         current = (blocknum * bs * 100) / size
         if current > 100:
             current = 100
@@ -108,7 +106,7 @@ class Downloader(object):
             return res.info()
 
     @classmethod
-    def fetch(cls, url, filename, expected_sha256):
+    def fetch(cls, url, filename, expected_sha256=None):
         b = ProgressBar()
         try:
             urlretrieve(url, filename, b.reporthook, sha256sum=expected_sha256)
