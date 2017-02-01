@@ -19,7 +19,7 @@ def python_version_gte(version, pkgs):
     # but this is only implemented in setuptools 17.1, while MacOSX currently ships
     # setuptools 1.1.6. Upgrading setuptools is unfeasible there due to its System Integrity Protection
     major, minor = version
-    return dict((':python_version=="{}.{}"'.format(major, x), pkgs)
+    return dict((':python_version=="{0}.{1}"'.format(major, x), pkgs)
                 for x in range(minor, 10))
 
 setup(name='pythonz-bd',
