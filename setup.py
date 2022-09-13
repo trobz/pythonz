@@ -22,13 +22,13 @@ def python_version_gte(version, pkgs):
     return dict((':python_version=="{0}.{1}"'.format(major, x), pkgs)
                 for x in range(minor, 10))
 
-setup(name='pythonz-bd',
+setup(name='pythonz-trobz',
       version              = get_version(),
-      description          = "Manage python installations in your system, berdario's shallow fork",
+      description          = "Manage python installations in your system, trobz's fork",
       long_description     = open('README.rst').read(),
-      author               = 'saghul',
-      author_email         = 'saghul@gmail.com',
-      url                  = 'https://github.com/berdario/pythonz/tree/bd',
+      author               = 'Trobz',
+      author_email         = 'contact@trobz.com',
+      url                  = 'https://github.com/trobz/pythonz/tree/trobz',
       license              = 'MIT',
       packages             = find_packages('pythonz'),
       extras_require       = python_version_gte((3,5), ['resumable-urlretrieve']),

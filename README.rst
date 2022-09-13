@@ -54,7 +54,7 @@ Before installing Pythons via Pythonz
 You might want to install some optional dependencies, for functionality that
 is often expected to be included in a Python build (it can be a bummer to discover these missing and
 have to rebuild your python setup). These include the following, ordered by (very roughly guessed)
-probability that you will need them::
+probability that you will need them:
 
 Debian family (Ubuntu...)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,7 +187,7 @@ Use `virtualenv`, e.g.::
 
   mkvirtualenv -p $(pythonz locate 2.7.3) python2.7.3
 
-For more information about virtualenv, checkout `its documentation <http://www.virtualenv.org/en/latest/>`_.
+For more information, checkout `virtualenv documentation <http://www.virtualenv.org/en/latest/>`_.
 
 For Python >= 3.3
 ^^^^^^^^^^^^^^^^^
@@ -196,7 +196,7 @@ Use `pyvenv` directly from Python, e.g.::
 
   /usr/local/pythonz/pythons/CPython-3.4.1/bin/pyvenv pyvenv
 
-For more information about pyvenv, checkout `its documentation <https://docs.python.org/3/library/venv.html>`_.
+For more information, checkout `pyvenv documentation <https://docs.python.org/3/library/venv.html>`_.
 
 DTrace support
 --------------
